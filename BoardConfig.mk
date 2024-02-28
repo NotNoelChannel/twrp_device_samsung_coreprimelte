@@ -29,19 +29,30 @@ BOARD_RAMDISK_OFFSET         := 0x02000000
 BOARD_KERNEL_TAGS_OFFSET     := 0x01e00000
 BOARD_KERNEL_SEPARATED_DT    := true
 BOARD_KERNEL_PAGESIZE        := 2048
-BOARD_CUSTOM_BOOTIMG_MK      := device/samsung/coreprimelte/mkbootimg.mk
 TARGET_KERNEL_CONFIG 		 := msm8916_sec_defconfig
 TARGET_KERNEL_TIMA_CONFIG 	 := tima8916_defconfig
 TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
 TARGET_KERNEL_VARIANT_CONFIG := msm8916_sec_rossa_eur_defconfig
 TARGET_KERNEL_SOURCE         := kernel/samsung/coreprimelte
 
+# CMHW
+BOARD_HARDWARE_CLASS += device/samsung/coreprimelte/cmhw
+
+# Storage
+TARGET_RECOVERY_FSTAB := device/samsung/coreprimelte/recovery/twrp.fstab
+
+# Display
+TARGET_CONTINUOUS_SPLASH_ENABLED := true
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+MAX_EGL_CACHE_KEY_SIZE := 12*1024
+MAX_EGL_CACHE_SIZE := 2048*1024
+
+# TWRP
 TW_THEME := portrait_hdpi
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
-TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
-TW_NO_USB_STORAGE := true
 BOARD_SUPPRESS_SECURE_ERASE := true
+BOARD_HAS_NO_SELECT_BUTTON := true
 RECOVERY_SDCARD_ON_DATA := true
 BOARD_HAS_NO_REAL_SDCARD := true
 TW_NO_REBOOT_BOOTLOADER := true
@@ -50,6 +61,6 @@ TW_DEVICE_VERSION := 0_notnoelchannel
 TW_EXCLUDE_SUPERSU := true
 TW_EXCLUDE_TWRPAPP := true
 TW_NO_EXFAT_FUSE := true
-TW_MTP_DEVICE := /dev/usb_mtp_gadget
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := device/samsung/coreprimelte/recovery/recovery_keys.c
 TW_BRIGHTNESS_PATH := "/sys/devices/soc.0/1a00000.qcom\x2cmdss_mdp/qcom\x2cmdss_fb_primary.133/leds/lcd-backlight/brightness"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
