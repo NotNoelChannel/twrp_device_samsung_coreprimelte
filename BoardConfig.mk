@@ -29,11 +29,11 @@ BOARD_RAMDISK_OFFSET         := 0x02000000
 BOARD_KERNEL_TAGS_OFFSET     := 0x01e00000
 BOARD_KERNEL_SEPARATED_DT    := true
 BOARD_KERNEL_PAGESIZE        := 2048
-TARGET_KERNEL_CONFIG 		 := msm8916_sec_defconfig
+TARGET_KERNEL_CONFIG 		     := cyanogen_rossa_eur_defconfig
 TARGET_KERNEL_TIMA_CONFIG 	 := tima8916_defconfig
 TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
 TARGET_KERNEL_VARIANT_CONFIG := msm8916_sec_rossa_eur_defconfig
-TARGET_KERNEL_SOURCE         := kernel/samsung/coreprimelte
+TARGET_KERNEL_SOURCE         := kernel/samsung/msm8916-caf
 
 # CMHW
 BOARD_HARDWARE_CLASS += device/samsung/coreprimelte/cmhw
